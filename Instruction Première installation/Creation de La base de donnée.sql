@@ -24,3 +24,5 @@ use lequaiantique;
     CREATE TABLE reservation (id INT AUTO_INCREMENT NOT NULL, arrivee DATETIME NOT NULL, nb_convive INT NOT NULL, intolerance_alimentaire LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
     CREATE TABLE auth_entity (id INT AUTO_INCREMENT NOT NULL, roles JSON NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
     CREATE TABLE contact (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(64) NOT NULL, prenom VARCHAR(64) NOT NULL, email VARCHAR(128) NOT NULL, message LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+    INSERT Into administrateur (username,password,nom,prenom,auth_entity,email) values ('admin','lequaiantique','root','lequai','1','administrateur@lequaiantique.xyz');
+    INSERT INTO auth_entity(roles,email,password) VALUES ('[ROLE_ADMIN]','administrateur@lequaiantique.xyz','lequaiantique);
