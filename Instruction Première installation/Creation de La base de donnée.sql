@@ -6,7 +6,7 @@ use lequaiantique;
 #Fichiers migration de base : 
 
 #Création des Tables  Initiales:
-#( Ce ce schéma de table initial a pu être modifié au cours du développement. Mieux vaut donc utiliser les fichiers migrations.) 
+#( Ce schéma de table initial a pu être modifié au cours du développement. Mieux vaut donc utiliser les fichiers migrations.) 
     
 
     CREATE TABLE administrateur (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id), username VARCHAR(64) DEFAULT NULL, password VARCHAR(256) DEFAULT NULL, nom VARCHAR(64) DEFAULT NULL, prenom VARCHAR(64) DEFAULT NULL,auth_entity VARCHAR(255) NOT NULL, email VARCHAR(128) NOT NULL) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
