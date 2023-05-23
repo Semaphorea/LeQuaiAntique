@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %}Boisson{% endblock %}
+
+
+{% block body %}
+{% block FormPage %}
+  <div id="container" class='crud-container d-grid justify-content-center' >
+    <h1>Boisson</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ boisson.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ boisson.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ boisson.description }}</td>
+            </tr> 
+            <tr>
+                <th>Photo</th>
+                  <td>  
+                      <div class='photocrudform'  "> <img style="width:40px; heigth:auto" src='{{ boisson.dataview.set.data['base64'] }}' alt='{{ boisson.dataview.set.data["titre"] }}' title='{{ boisson.dataview.set.data["titre"] }}'  /></div>
+                 </td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ boisson.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gestion_boisson') }}">back to list</a>
+
+    <a href="{{ path('app_crud_boisson_edit', {'id': boisson.id}) }}">edit</a>
+
+    {{ include('/AdminTemplate/Crud/Plats/crud_boisson/_delete_form.html.twig') }}
+</div>
+{% endblock %}
+</div>
+{% endblock %}
+

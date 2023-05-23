@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Client{% endblock %}
+
+{% block body %}
+{% block FormPage %}
+  <div id="container" class='crud-container d-grid justify-content-center' >
+    <h1 class="m-5">Création de nouveau client</h1>
+
+    {{ include('/AdminTemplate/Crud/crud_client/_form.html.twig') }}
+
+    <a href="{{ path('app_gestion_client') }}">back to list</a>
+  </div>    
+{% endblock %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+  {% block Menu %}
+
+
+      
+        
+      <h1>Les Menus</h1>      
+      
+                     <div class="d-flex justify-content-between   " >  
+ 
+               {% for menu in menus %}
+
+                  <div class='menu menus-container m-5'>
+
+                      <h3>{{menu.titre}}</h3>
+                      
+                          {% if formules is not empty %}    
+                          <div id='formules-container' class='formules m-4'>
+                                      <article class="articleformule ">
+                                          <ul class='formules'>
+                                              {% for formule in formules %}   
+                                                <li> 
+                                                  <h5 class='titre'>{{ formule.titre }}</h5>
+                                                 
+                                                  <div class='dateapplication'>( {{ formule.DateApplication | date('D d M Y') }} )</div>
+                                                 
+                                                  <div class='corpformule'><span>{{ formule.Description}}</span> : <span>{{ formule.Prix }} €</span> </div> 
+                                                  
+                                                </li>
+                                            {% endfor %} 
+                                          </ul>    
+                                      </article>
+                            </div>
+                            {% endif%}   
+                
+                  
+                {% endfor %}
+
+
+
+</div>
+</div>
+                
+
+
+           
+              
+
+  
+  
+  
+  {% endblock %}

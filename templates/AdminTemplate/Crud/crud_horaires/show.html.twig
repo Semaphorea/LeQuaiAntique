@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Horaires{% endblock %}
+
+{% block body %}
+  {% block FormPage %}
+  <div id="container" class='crud-container d-grid justify-content-center' >
+    <h1>Horaires</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ horaire.id }}</td>
+            </tr>
+            <tr>
+                <th>DejeunerDebut</th>
+                <td>{{ horaire.DejeunerDebut ? horaire.DejeunerDebut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DejeunerFin</th>
+                <td>{{ horaire.DejeunerFin ? horaire.DejeunerFin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DinerDebut</th>
+                <td>{{ horaire.DinerDebut ? horaire.DinerDebut|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DinerFin</th>
+                <td>{{ horaire.DinerFin ? horaire.DinerFin|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gestion_administrateur') }}">back to list</a>
+
+    <a href="{{ path('app_crud_horaires_edit', {'id': horaire.id}) }}">edit</a> 
+
+    {{ include('/AdminTemplate/Crud/crud_horaires/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
+</div>
+{% endblock %}
+
+ 

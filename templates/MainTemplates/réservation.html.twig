@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+  {% block Réservation %}
+ 
+
+
+
+   
+<div id="maincontainer" class='container'>
+
+<h1>Réservation</h1>
+  {{- form_start(form) -}}
+ {% block _service_form_widget %}
+  {% if attribute(form.vars.attr, 'class') is defined and attribute(form.vars.attr, 'class') == 'ServiceMidi' %}
+    <fieldset>
+      {{ form_label(form) }}
+      {{- form_widget(form) -}}
+      {{- form_errors(form) -}}
+    </fieldset>
+     
+  {% else %} 
+
+ 
+    
+    {{- form_row(form.Arrivee) -}}
+    {{- form_row(form.Nombre_Adultes) -}}
+    {{- form_row(form.Nombre_Enfants) -}}
+    {{- form_row(form.IntolerancesAlimentaires) -}}
+    {{- form_row(form.Horaire_Midi) -}}
+    {{- form_row(form.Horaire_Soir) -}}
+    {{- form_row(form.Remarques) -}}
+     <p>( Attention : Pour tout retard de plus de 20 min votre table sera attribuée à un autre client. )</p>
+    {{- form_row(form.Reserver) -}}
+    {{- form_row(form.Modifier) -}} 
+    {{- form_errors(form) -}}
+  {% endif %}
+{% endblock %}
+  {{- form_end(form) -}}
+
+
+   {% if messageReservationImpossible is not empty %}
+      <p> {{messageReservationImpossible}}<p>
+  {% endif %}
+  
+
+</div>
+  
+
+    
+  
+  
+  {% endblock %}

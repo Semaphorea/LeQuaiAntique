@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>Entree index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Photo</th>
+                <th>Prix</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entree in entrees %}
+            <tr>
+                <td>{{ entree.id }}</td>
+                <td>{{ entree.titre }}</td>
+                <td>{{ entree.description }}</td>
+                
+                {% if entree.dataview.set.data['base64'] is defined %}  
+                  <td>  
+                      <div class='photocrudform'  "> <img style="width:40px; heigth:auto" src='{{ entree.dataview.set.data['base64'] }}' alt='{{ entree.dataview.set.data["titre"] }}' title='{{ entree.dataview.set.data["titre"] }}'  /></div>
+                 </td>
+                  {% else %}
+                <td>
+                 <div class='photocrudform'  "></div>
+                </td>
+               {% endif%}
+                <td>{{ entree.prix }}</td>
+                <td>
+                    <a href="{{ path('app_crud_entree_show', {'id': entree.id}) }}">show</a>
+                    <a href="{{ path('app_crud_entree_edit', {'id': entree.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_entree_new') }}">Create new</a>
+      <a href="{{ path('app_gestion_menus') }}">Back to Gestion Menu</a>
+</div>
+{% endblock %}
+  

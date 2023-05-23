@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block FormPage %}
+{% block title %}New Administrateur{% endblock %}
+
+{% block body %}
+  <div id="container crud-container" class='d-grid justify-content-center m-5' >
+    <h1>Create new Administrateur</h1>
+
+    {{ include('AdminTemplate/Crud/crud_administrateur/_form.html.twig') }}
+
+   <div class="d-grid justify-content-center"> <a href="{{ path('app_gestion_administrateur') }}">back to list</a></div>
+{% endblock %} 
+</div>
+{% endblock %}

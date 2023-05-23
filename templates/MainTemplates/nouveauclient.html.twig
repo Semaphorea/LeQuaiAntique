@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}   
+
+
+  {% block body %}
+    
+     <div class="form d-grid  justify-content-center mt-5">
+      <div id="formcontent" class=' d-grid    w-100 justify-content-center'>
+        <div class='title'><h2 class='mb-5'>Nouveau Client</h2></div>  {# page | capitalize (a placer lorsqu'un dictionnaire sera installé) #}
+       
+        {{ form_errors(form) }}
+        {{ form_start(form, {'attr': {'class': 'form'}})  }}      
+        {{form_end(form)}}
+     
+     
+      </div>
+      {% if messageconfirmation is not empty %}
+                <div>{{ messageconfirmation }}</div>
+                <div>{{rappeldonnees }}</div>
+       {% endif%}         
+    </div>
+
+{% endblock %}
+ 

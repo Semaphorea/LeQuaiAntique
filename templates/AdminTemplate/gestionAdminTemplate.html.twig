@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block Gestion_Administrateur %}
+     <div class="mt-5" >
+      {% include '/AdminTemplate/Crud/crud_administrateur/index.html.twig' %}
+    </div>
+    <div class="mt-5">
+      {% include '/AdminTemplate/Crud/crud_horaires/index.html.twig' %}
+    
+
+
+   <div class='mt-5'> 
+    <h2>Nombre de clients Maximum</h2>
+    <form method="POST" action="">
+    <div class='d-flex col-1'>
+      <input type='text' id="nbmaxclient" name="nbmaxclient" class='form-control d-inline-block col-1 '></input> <button type='submit' class='btn btn-danger col-1 mx-4 w-100' >Envoyer</button> <label class='d-inline-block mx-4 align-item-center col-2'  for="nbmaxclient"> {{ nbmaxclient }} Clients </label>
+    </div>
+    
+    </form>
+   </div>
+  
+{% endblock %} 

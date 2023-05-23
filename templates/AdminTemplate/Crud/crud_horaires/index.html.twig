@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horaires index{% endblock %}
+
+{% block body %}
+    <h2>Horaires index</h2>
+       <p>(Les horaires définient au premier indice correspondent aux horaires par défaut.)</p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DejeunerDebut</th>
+                <th>DejeunerFin</th>
+                <th>DinerDebut</th>
+                <th>DinerFin</th>
+                <th>Active</th> 
+            </tr>
+        </thead>
+        <tbody>
+        {% for horaire in horairesAdmin %}
+            <tr>
+                <td>{{ horaire.id }}</td>
+                <td>{{ horaire.DejeunerDebut ? horaire.DejeunerDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ horaire.DejeunerFin ? horaire.DejeunerFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ horaire.DinerDebut ? horaire.DinerDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ horaire.DinerFin ? horaire.DinerFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ horaire.Active}}</td>
+                <td>
+                    <a href="{{ path('app_crud_horaires_show', {'id': horaire.id}) }}">show</a>
+                    <a href="{{ path('app_crud_horaires_edit', {'id': horaire.id}) }}">edit</a>
+                </td>
+            </tr>  
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %} 
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_horaires_new') }}">Create new</a>
+    </div>
+{% endblock %}
+

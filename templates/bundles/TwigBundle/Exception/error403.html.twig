@@ -1,0 +1,12 @@
+{# templates/bundles/TwigBundle/Exception/error403.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Accès refusé</h1>
+    
+    <p>La page demandée ne vous ai pas accessible, veuillez <a href="{{ path('Accueil')}}">retourner à l'Accueil</a> </p>
+    <p>
+        The requested page is not allowed. Checkout for any URL
+        misspelling or <a href="{{ path('Accueil') }}">return to the homepage</a>.
+    </p> 
+{% endblock %}  

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+
+{% block Gestion_Menus %}  
+  
+  <div class=' d-grid justify-content-center mt-5' >
+
+      <h2>Edition des Formules</h2>
+        {%if item1 is not empty%}  
+        <ul>
+     {% for item in item1 %}
+  
+        <li> <a href="/Administration/Gestion Menus/{{item| capitalize}}" alt="{{item}}">{{item| capitalize }}</a> </li>
+
+    {% endfor%} 
+       </ul>
+    {% endif %}  
+
+     <h2>Edition des Menus</h2>
+        {%if item2 is not empty%}  
+        <ul>
+     {% for item in item2 %}
+  
+        <li> <a href="/Administration/Gestion Menus/{{item| capitalize}}" alt="{{item}}">{{item| capitalize }}</a> </li>
+
+    {% endfor%} 
+       </ul>
+    {% endif %}  
+
+    <h2>Edition des Plats et Boissons</h2>
+    {%if item3 is not empty%}
+        <ul>
+     {% for item in item3 %}
+        <li> <a href="/Administration/Gestion Menus/{{item| capitalize}}" alt="{{item}}">{{item| capitalize }}</a> </li>
+
+    {% endfor%}
+        </ul>
+    {% endif %}  
+   </div>
+  
+  
+{% endblock %} 

@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+  {% block Carte %}
+    
+      
+         <h1>Notre Carte</h1>
+               <div class="d-flex justify-content-between mt-6 pt-5" >
+                 {% if entrees is not empty %}    
+                  <article class="articlecarte ">
+                    <h2>Entrées</h2>
+                    <ul class='entrees'>
+                        {% for entree in entrees %}
+                         
+                          
+                            <li> <span>{{ entree.Titre }}</span> : <span>{{entree.Prix}} &euro; </span></li>
+                          
+                        {% endfor %} 
+                    </ul>    
+                  </article>
+                 {% endif%}  
+
+                {% if plats is not empty %}
+                  <article class="articlecarte">
+                    <h2>Plats</h2>
+                      <ul class='plats'>
+                       {% for plat in plats %}
+                      
+                        <li>                                               
+                        <span>{{plat.Titre}}</span> : <span>{{plat.Prix}} &euro; </span>
+                        </li>
+                       {% endfor %}   
+                     </ul>
+                  </article>
+                {% endif%}
+            
+                {% if desserts is not empty %} 
+                  <article class="articlecarte">
+                    <h2>Desserts</h2>
+                       <ul class='desserts'>
+                       {% for dessert in desserts %}
+                           
+                         <li>                     
+                        <span>{{dessert.Titre}}</span> : <span>{{dessert.Prix}} &euro; </span>      
+                        </li>                                        
+                       {% endfor %}   
+                     </ul>
+                     </article>  
+                {% endif%}
+
+                 {% if boissons is not empty %}
+                  <article class="articlecarte">
+                  <h2>Boissons</h2> 
+                      <ul class='boissons'>  
+                    {% for boisson in boissons %}  
+                      
+                        <li>
+                        <span>{{boisson.Titre}}</span> : <span>{{boisson.Prix}} &euro; </span>                      
+                        </li>
+
+                      {% endfor %}    
+                     </ul>
+                     </article>                            
+                 {% endif%}
+            </article>  
+    </div>
+    </div>
+          
+
+  
+  
+  
+  {% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Dessert{% endblock %}
+
+
+{% block body %}
+{% block FormPage %}
+  <div id="container" class='crud-container d-grid justify-content-center' >
+
+    <h1>Dessert</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dessert.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ dessert.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ dessert.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ dessert.prix }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                {% if dessert.dataview.set.data['base64'] is defined%}
+                <td>  
+                      <div class='photocrudform'  "> <img style="width:40px; heigth:auto" src='{{ dessert.dataview.set.data['base64'] }}' alt='{{ dessert.dataview.set.data["titre"] }}' title='{{ dessert.dataview.set.data["titre"] }}'  /></div>
+               </td>
+                {% else %}
+                <td>
+                 <div class='photocrudform'  "></div>
+                </td>
+               {% endif%}
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_gestion_dessert') }}">back to list</a>
+
+    <a href="{{ path('app_crud_dessert_edit', {'id': dessert.id}) }}">edit</a>
+
+    {{ include('/AdminTemplate/Crud/Plats/crud_dessert/_delete_form.html.twig') }}
+</div>
+{% endblock %}
+</div>
+{% endblock %}

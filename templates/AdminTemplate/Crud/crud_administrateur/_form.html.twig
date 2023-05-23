@@ -1,0 +1,9 @@
+
+{% block FormPage %}
+  <div id="container" class='d-grid justify-content-center m-4' >
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+</div>
+{% endblock %}

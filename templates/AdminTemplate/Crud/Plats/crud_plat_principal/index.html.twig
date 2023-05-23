@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block FormPage %}
+{% block title %}PlatPrincipal index{% endblock %}
+
+{% block body %}
+<div id="container" class='d-grid justify-content-center m-5' >
+    <h1>PlatPrincipal index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat_principal in plat_principaux %}
+            <tr>
+                <td>{{ plat_principal.id }}</td>
+                <td>{{ plat_principal.titre }}</td>
+                <td>{{ plat_principal.description }}</td>
+                <td>{{ plat_principal.prix }}</td>
+                
+                {% if plat_principal.dataview.set.data['base64'] is defined %}
+                 <td>  
+                      <div class='photocrudform'  "> <img style="width:40px; heigth:auto" src='{{ plat_principal.dataview.set.data['base64'] }}' alt='{{ plat_principal.dataview.set.data["titre"] }}' title='{{ plat_principal.dataview.set.data["titre"] }}'  /></div>
+               </td>
+                {% else %}
+                <td>
+                 <div class='photocrudform'  "></div>
+                </td>
+               {% endif%}
+                <td>
+                    <a href="{{ path('app_crud_plat_principal_show', {'id': plat_principal.id}) }}">show</a>
+                    <a href="{{ path('app_crud_plat_principal_edit', {'id': plat_principal.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_plat_principal_new') }}">Create new</a>
+    <a href="{{ path('app_gestion_menus') }}">Back to Gestion Menu</a>
+</div>
+{% endblock %}
+{% endblock %}

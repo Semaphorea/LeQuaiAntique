@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client{% endblock %}
+
+{% block body %}
+
+{% block FormPage %}
+  <div id="container crud-container" class='d-grid justify-content-center' >
+  <div class="gestionclientshow">
+    <h1>Client</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ client.id }}</td>
+            </tr>
+            <tr>
+                <th>DateTimeCreation</th>
+                <td>{{ client.DateTimeCreation ? client.DateTimeCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ client.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ client.Prenom }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ client.Email }}</td>
+            </tr>
+            <tr>
+                <th>NbConvive</th>
+                <td>{{ client.nbConvive }}</td>
+            </tr>
+            <tr>
+                <th>Commande</th>
+                <td>{{ client.commande }}</td>
+            </tr>
+            <tr>
+                <th>Reservation</th>
+                <td>{{ client.Reservation }}</td>
+            </tr>
+            <tr>
+                <th>IntolerancesAlimentaires</th>
+                <td>{{ client.IntolerancesAlimentaires ? client.IntolerancesAlimentaires|join(', ') : '' }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_client_index') }}">back to list</a>
+
+    <a href="{{ path('app_crud_client_edit', {'id': client.id}) }}">edit</a>
+
+    {{ include('/AdminTemplate/Crud/crud_client/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
+</div>
+{% endblock %}
+

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+    {% block head%}
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Le Quai Antique - {{ page | capitalize}}{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+          
+
+        {% block stylesheets %}
+              
+             {{ encore_entry_link_tags('app') }}  
+        {% endblock %}
+
+              
+          
+        
+    </head>   
+    {% endblock head%}
+
+    <body 
+    {% if page is defined %}
+     class="{{page|lower}}-page">
+     {%else%}
+      class="admin-page">
+     {% endif%}
+
+         {% block body %}   
+           {% block header %}
+               <header>  
+                        <div id='logo' class='logo fs-1 pt-5 text-center '> Le Quai Antique </div> 
+                        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}      
+                        <div id='connexion' class='btn btn-danger connexion' onclick='window.location.href="logout"'>Se Déconnecter</div>    
+                        {% else %} 
+                        <div id='connexion' class='btn btn-danger connexion' onclick='window.location.href="login"'>Se Connecter</div>   
+                        {% endif %}
+                            </header>
+           {% endblock header %}
+           {% block nav %} 
+                        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
+                        <div class="container-fluid">
+                                
+                        <div class="collapse navbar-collapse">
+                        <ul class="navbar-nav">
+
+                                {% for item in navitem %}
+                                <li class="nav-item">
+                                    <a class="nav-link active"
+                                            {% if item == page %}
+                                                    aria-current= page 
+                                            {% endif %}
+
+                                         
+                                         {%  set itemdisplay = null %}
+                                         {%   set itemdisplay = item|split('/') %}                                                          
+                                      
+                                        {% if itemdisplay[1] is defined %} 
+                                                {%if itemdisplay[0] == 'Administration' %}
+                                                  href="/{{itemdisplay[0]}}/{{itemdisplay[1]}}">{{itemdisplay[1]   }}</a>
+                                                 {% endif %}
+                                        {% elseif item == 'Administration' %}    
+                                                   href="/Administration"> {{ item  }} </a> 
+
+                                        {% else %}
+                                                 href="{{item}}"> {{ item  }} </a> 
+                                        
+                                        {% endif %}
+
+                                    </li>
+                                {% endfor %}
+
+                                    
+                                  </ul>
+                                </div>  
+                              </div>
+                            </nav>
+            {% endblock nav %}
+
+             {% block breadcrumb %}  
+                        <nav id="navbreadcrumb" class="my-2"  >
+                                <ul  class="breadcrump">  
+                                        {% if page == "Accueil" %}
+                                             <li class='breadcrumb-item' >
+                                                <a href="{{ page | replace({'_': '%20'}) | capitalize }}"> {{ page | capitalize }} </a>
+                                             </li>
+            
+                                        {% else %}  
+                                              <li class='breadcrumb-item divider' >
+                                                <a href="Accueil">Accueil</a>
+                                              </li>   
+                                              <li class='breadcrumb-item '>                                              
+                                                <a href="{{ page | replace({'_': '%20'})  }}">{{ page | capitalize }}</a>
+                                            </li>
+                                        {% endif%}
+                               </ul>
+                        </nav>  
+           {% endblock breadcrumb %}
+              
+
+        <div id="maincontainer" class='container'>                  
+ 
+                {{ block(page) }}    
+         
+          
+         </div>  
+        
+            
+
+
+
+
+ 
+         {% block footer%}
+               
+               <footer > 
+                   
+
+                     <div class="afoot flex justify-content-around fs-6 pt-2" > 
+                          <a  href="/Accès" alt="Accès" > Accès </a><a href="/Mentions Légales">Mentions Légales</a> <a href="/Contact">Contact</a>
+                    </div> 
+                      {% if horaires is not empty %}
+                       <div class="mt-3" >    
+                         <div class="horaires d-flex justify-content-center w-100">Service Déjeuner : de {{horaires[0][0]}} à {{horaires[1][0]}}</div>
+                         <div class="horaires d-flex justify-content-center w-100">Service Dîner : de {{horaires[2][0]}} à  {{horaires[3][0]}}</div>
+                       </div>
+                     {% endif %}
+
+                     <div class='copy'>Copyright @ 2023, <span class="brandt">Le Quai Antique</span></div> 
+              </footer>
+         {% endblock footer%}
+        
+        {% endblock %}
+        </body> 
+         
+ {% block javascript %}
+            {{ encore_entry_script_tags('bootstrap') }}  
+            {{ encore_entry_script_tags('app') }}  
+
+            
+        {% endblock %}
+        
+</html>

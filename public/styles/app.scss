@@ -1,0 +1,301 @@
+
+@import "../../node_modules/bootstrap/scss/bootstrap";  
+
+         
+/*Fonts*/  
+
+  @font-face {
+    font-family: Waterfall;
+    src: url('/styles/Fonts/Waterfall/Waterfall-Regular.ttf');
+  } 
+  
+/* Structure */ 
+
+body {
+    background-color: #fbfbd8;   
+    @media (min-width: 768px) {min-height:1100px;max-height:2000px;} 
+}  
+$margin-left-gnl : 7.2em;
+  
+header{height:15em; }
+
+footer{height:15%;width:100%;position:fixed; bottom:0; background-color: #5c5035;}    
+.afoot{display:flex; width:100%;} 
+footer .horaires{color: white;}
+
+
+.navbar {
+          & .nav-item:first-child{margin-left :calc($margin-left-gnl - 1em);}
+          & .nav-item{font-size: 1.3em;}
+        -o-margin-top: 4em
+
+        }
+        
+ 
+
+.breadcrump{
+  margin-left:$margin-left-gnl; 
+  list-style: none; 
+  & li {display:inline;} 
+  
+  
+}   
+
+    
+ .divider::after{content: var(--bs-breadcrumb-divider, ">");
+                 color: #86754d; }; 
+
+ 
+
+/*Element*/ 
+
+h1{font-family:Waterfall; 
+   font-size:3.5em;}
+
+h2{font-family:Waterfall;
+    font-size:3em;
+    
+  }
+
+a {color:#86754d; text-underline-offset : 2px;} 
+.form div {display:flex; justify-content: space-between;}  
+.form div:nth-child(7){display:flex;justify-content : center;}    
+.form div select {width:12em;} 
+
+
+
+/***************************************************
+* Pages
+*************************************************/
+
+/***Pages d'Administration***/
+
+/*Administration*/  
+.rubrique{   
+  display:flex; 
+  justify-content: space-around;
+  
+}
+.rubriqueAdmin{ 
+  
+
+  text-align: center;
+  width: 15em;
+  margin-top: 5em;
+  
+  & .imgArabesque{
+    height: auto;
+    width: 15em;  
+    
+    & img {
+      height:100%;
+      width:100%;
+    }
+  }
+}   
+
+
+/*Gestion Administrateur*/
+ 
+ .gestion_administrateur-page{ min-height: 100em;}
+ .gestion_administrateur-page .form-control {width:auto;}
+
+/* - Form Create Horaires*/
+  .horaire > div:first-child{display:inline-block!important; } 
+  .horaire > div:nth-child(2){margin-left:2em;display:inline-block!important; }   
+    
+/*Gestion Client*/
+.gestionclient,.gestionclientshow, .gestionclientedit{
+     width: 80%;
+     margin:2% 10%;
+}
+
+.gestionclientshow,.gestionclientedit{margin-top:10%}
+
+.gestionclientedit label{margin-right: 3%}
+
+#client_DateTimeCreation{display:inline-block;
+         #client_DateTimeCreation_date{display:inline-block;margin-right:5pt;  }
+         #client_DateTimeCreation_time{display:inline-block;}
+                            }
+
+
+ 
+/*Page Administration Credits*/
+.credits-page #maincontainer ul li{ list-style-type: square;}
+
+
+
+/***Page Front-End***/
+
+/*Carte*/
+.articlecarte {padding:2em;border:solid;border-color:#5c5035;
+                box-shadow: #86754d 2px 3px; border-radius: 2px;
+                margin-left:1em ;
+              & h2 {display:grid;
+                    font-family:Waterfall;
+                    text-decoration: underline 1px ;
+                    text-underline-offset: 8px;
+                    font-size: 3em;
+                    justify-content: center;
+                    margin-bottom:1em;}
+              
+              & li{list-style-type:upper-roman;
+                   list-style-position: inside}
+              }
+
+              
+/*Reservation*/ 
+.réservation-page{min-height:80em;}
+/*Accès*/
+.accès-page{min-height:80em;}
+.frame{float:left;}
+.container-acces{float:right;}
+/*mentionlegales*/
+.mentions_légales-page{min-height:130em;}
+
+
+
+/* Pages Crud */
+.crud-container{margin-top: 5em;  
+                & a{display:flex;justify-content: center; }
+                & label{float:left;}
+                & input{float:right;} } 
+.photocrudform {width:5%;height:5%;} 
+
+.crud-formule 
+.crud_formule_index-page  {margin:10em;}
+
+@media(min-width:768){
+
+   .reservation_form div:nth-child(4){float: right;
+                                      position: absolute;
+                                      width: 150em;
+                                      top: 27em;
+                                      left: 70em;}
+
+    .reservation_form div:nth-child(7) {float: right;
+                                        position: absolute;
+                                        width: 150em;
+                                        top: 50em;
+                                        left: 70em;}                                  
+}
+
+.reservation_form_IntolerancesAlimentaires> select 
+#reservation_form .quartHoraire{ 
+                                background-color: red!important;
+                                border-radius: 4px; 
+                                border-color: #aa313185;
+                                display:inline-block; 
+                              }
+ 
+
+  .admin-page #horaires_Active{ margin-left:1em!important;  
+                             }
+  .admin-page .horaire div{margin:2pt;}
+ 
+  .gestion_menus-page ul li{list-style-type: none;}
+
+/* Element Graphique */
+#logo{font-family:Waterfall;font-size:58px!important;}
+p{font-family:Helvetica;}
+.carrousel{list-style: none;} 
+
+.copy{ 
+         font-size:0.8em;bottom:1em;
+         position:absolute;right:3em;
+         
+         & .brandt { font-size:1.8em;font-family: Waterfall;}
+   }
+
+
+ 
+
+/* Fonctions */
+#connexion{float:right;margin-right:12em;margin-top:2em;}
+
+
+
+
+
+
+
+
+/***************************************************
+*Carousel
+*************************************************/
+#containercarousel{height: 18em!important;box-sizing: content-box!important;} 
+.carousel, .carousel-item,.card-container,.card-img{height:inherit;box-sizing: inherit;}    
+.photocarousel{ box-sizing: inherit;
+  height:inherit;
+  max-height: 18em;
+  max-width:250px;   
+  
+  }  
+        
+@media (max-width: 767px) {
+  .carousel-inner .carousel-item > div {
+    display: none;
+
+  }
+  .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+  .carousel-inner .carousel-item-end.active,
+  .carousel-inner .carousel-item-next {
+    transform: translateX(25%);
+  }
+
+  .carousel-inner .carousel-item-start.active, 
+  .carousel-inner .carousel-item-prev {
+    transform: translateX(-25%);
+  }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+  transform: translateX(0);
+
+}
+.carousel-inner div{  display:inline-block;}   
+
+
+
+
+.radiobutton input[type="radio"]{ 
+                                  opacity:0; position:fixed; width:0;
+
+                                  &:checked + label {
+                                    border : 2px solid rgb(135, 71, 71);  
+                                    background-color: rgb(242, 178, 178);
+                                  }
+
+                                 }  
+
+.radiobutton label {
+                    background-color: #f00;
+                    border : 2px solid rgb(231, 162, 162);
+                    border-radius:0.4em;  
+                    color:#fff;
+                    display:inline-block;
+                    padding:0.1em 0.1em;
+                    margin:0.1em;
+                    
+                    &:hover{
+                      border : 2px solid rgb(135, 71, 71);                
+                    }
+
+                    
+                  }  
+

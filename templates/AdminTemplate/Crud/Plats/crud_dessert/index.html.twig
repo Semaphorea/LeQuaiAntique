@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+
+{% block FormPage %}
+{% block title %}Dessert index{% endblock %}
+
+
+{% block body %}
+<div id="container" class='d-grid justify-content-center m-5' >
+    <h1>Dessert index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dessert in desserts %}
+            <tr>
+                <td>{{ dessert.id }}</td>
+                <td>{{ dessert.titre }}</td>
+                <td>{{ dessert.description }}</td>
+                <td>{{ dessert.prix }}</td>
+                
+                {% if dessert.dataview.set.data['base64'] is defined%}
+                <td>  
+                      <div class='photocrudform'  "> <img style="width:40px; heigth:auto" src='{{ dessert.dataview.set.data['base64'] }}' alt='{{ dessert.dataview.set.data["titre"] }}' title='{{ dessert.dataview.set.data["titre"] }}'  /></div>
+               </td>
+                {% else %}
+                <td>
+                 <div class='photocrudform'  "></div>
+                </td>
+               {% endif%}
+                <td>
+                    <a href="{{ path('app_crud_dessert_show', {'id': dessert.id}) }}">show</a>
+                    <a href="{{ path('app_crud_dessert_edit', {'id': dessert.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_dessert_new') }}">Create new</a>
+     <a href="{{ path('app_gestion_menus') }}">Back to Gestion Menu</a>
+</div>
+{% endblock %}
+{% endblock %}

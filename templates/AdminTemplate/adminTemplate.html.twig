@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+
+{% block Administration %}
+  <div id="maincontainer" class='container'>
+ 
+        <div class='d-flex justify-content-center'><h1>Bienvenue sur les pages d' administration du Quai Antique </h1> </div> 
+        <div class='rubrique' > 
+          {% for item in items %}
+            <div id='{{item}}' class='rubriqueAdmin'>   
+
+              <div class='imgArabesque'>
+                <img src='/Images/Illustrations/arabesque.png'/>
+              </div>     
+              <div>
+                {% set itemdisplay = item|split('/') %}
+                <a href="{{item}}">{{itemdisplay[2]}}</a>
+              </div>  
+            </div>
+          {% endfor %}
+        </div> 
+
+
+  </div>
+{% endblock %} 

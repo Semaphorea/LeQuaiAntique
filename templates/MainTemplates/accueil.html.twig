@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+  {% block Accueil %} 
+   
+        <p>Situé dans une bâtisse du XVème siècle, Notre restaurant est le lieu incontournable à Chambéry pour découvrir les spécialités savoyardes.
+        Nous vous souhaitons la bienvenue et espèrons que vous passerez d'agréables moments dans notre établissement.</p>
+        <p>Le chef Michant est passionné par les produits du terroir, il va choisir tous les matins avec le jardinier du domaine
+         son panier de saison. La cuisine savoyarde est réputée pour ses plats généreux, tout en légèreté, c'est pour cela qu'il a fait de la cuisine végétarienne sa spécialité.</p>
+ 
+         
+             {% set a = 0 %}  
+                <div id="containercarousel" class="containercarousel text-center my-3 ">
+		              <div class="row mx-auto my-auto justify-content-center">
+		             	    <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+		
+                              <div class="carousel-inner " role="listbox">
+                                       
+
+                                                {% if photoBinary is not empty  %}                                                 
+                                                {% for photo in  photoBinary %}   
+                                                
+                                   
+                                                                  {% if a == 0   %}      
+                                                                   <div class="carousel-item active" ">
+                                                                     <div class="col-md-3">
+                                                                        <div class="card">
+                                                                           <div class="card-img" >
+                                                                                      <img class="d-block w-100 photocarousel"   src="{{ photo.base64 }}" title="{{ photo.titre }}" >                                                              
+                                                                               
+                                
+                                                                  {% else %}     
+
+                                                                   <div class="carousel-item">
+                                                                      <div class="card-container col-md-3"> 
+                                                                        <div class="card">
+                                                                          <div class="card-img">
+                                                                            <img class="d-block photocarousel " src="{{ photo.base64 }}" title="{{ photo.titre }}" >                                                                              
+                                                                                                        
+                                                                   {% endif%}            
+                                                                         </div>
+                                                                      </div>
+                                                                    </div>
+                                                                 </div>     
+
+                                                  {% set a = a+1 %}
+                                                {% endfor %}   
+                                                {% endif%}                                       
+                              </div>
+
+                              <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              </a>
+                              <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              </a> 
+                      </div>
+
+                                                
+                        <button class='btn btn-danger col-2 mt-3 justify-content-center ' onclick='window.location.href="Réservation"' >Réservation</button>                          
+
+		            </div>
+          </div>
+  
+
+				
+			
+    
+	  
+
+
+
+  
+  
+  
+  {% endblock %}

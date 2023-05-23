@@ -1,0 +1,26 @@
+{% extends base.html.twig %}
+
+
+<p>Votre réservation a bien été prise en compte !</p>
+<ul class='confirmation'>
+    <li>Adultes : {{reservation.Nombre_Adultes}}<li>
+    <li>Enfant : {{reservation.Nombre_}}<li>
+    {% if  reservation.horaire_midi is not empty %}    
+    <li>Horaires : {{ reservation.horaire_midi }}<li>
+    {% endif %}
+    {% if reservation.horaire_soir is not empty %}    
+    <li>Horaires : {{ reservation.horaire_soir }}<li>
+    {% endif %}
+    <ul>Intolérances alimentaires :>
+     {% if reservation.IntolerencesAlimentaires is not empty %}    
+     {% for inta in reservation.IntolerencesAlimentaires  %}    
+      <li>{{inta}}<li> 
+     {% endif %}   
+     {% endif %}
+    </ul> 
+    <li>Suggestion : {{reservation.Remarques}}<li>
+    
+
+</ul>
+
+

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+
+    
+
+{% block body %}
+
+   
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Exemple de Plats</th>
+                <th>Prix</th>
+                <th>Menu</th>
+                <th>DateApplication</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for formule in formules %}
+            <tr>
+                <td>{{ formule.id }}</td>
+                <td>{{ formule.Titre }}</td>
+                <td>{{ formule.Description }}</td>
+                <td>{{ formule.Plats ? formule.Plats|join(', ') : '' }}</td>
+                <td>{{ formule.Prix }}</td>
+                <td>{{ formule.Menu }}</td>   
+                <td>{{ formule.DateApplication}}</td>
+                <td>
+                    <a href="{{ path('app_crud_formule_show', {'id': formule.id}) }}">show</a>
+                    <a href="{{ path('app_crud_formule_edit', {'id': formule.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crud_formule_new') }}">Create new</a>
+    <a href="{{ path('app_gestion_menus') }}">Back to list</a>
+
+{% endblock %}
+

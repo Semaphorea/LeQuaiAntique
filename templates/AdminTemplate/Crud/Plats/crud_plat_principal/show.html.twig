@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PlatPrincipal{% endblock %}
+
+{% block body %}
+{% block FormPage %}
+  <div id="container" class='crud-container d-grid justify-content-center' >
+    <h1>PlatPrincipal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ plat_principal.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ plat_principal.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ plat_principal.description }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ plat_principal.prix }}</td>
+            </tr>
+            <tr> 
+                <th>Photo</th>
+            {% if plat_principal.dataview.set.data['base64'] is defined %}
+                 <td>    
+                      <div class='photocrudform'  "> <img style="width:40px; heigth:auto" src='{{ plat_principal.dataview.set.data['base64'] }}' alt='{{ plat_principal.dataview.set.data["titre"] }}' title='{{ plat_principal.dataview.set.data["titre"] }}'  /></div>
+               </td>
+                {% else %}
+                <td>
+                 <div class='photocrudform'  "></div>
+                </td>
+               {% endif%}
+            </tr>
+        </tbody> 
+    </table>
+
+    <a href="{{ path('app_gestion_plats') }}">back to list</a>
+
+    <a href="{{ path('app_crud_plat_principal_edit', {'id': plat_principal.id}) }}">edit</a>
+
+    {{ include('/AdminTemplate/Crud/Plats/crud_plat_principal/_delete_form.html.twig') }}
+    </div>
+{% endblock %}
+</div>
+{% endblock %}
+

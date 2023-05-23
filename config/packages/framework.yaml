@@ -1,4 +1,4 @@
-# see https://symfony.com/doc/current/reference/configuration/framework.html
+# see https://symfony.com/doc/current/reference/configuration/framework.html  
 framework:
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
@@ -18,8 +18,15 @@ framework:
     php_errors:
         log: true
 
+    serializer:
+        default_context:
+            enable_max_depth: true
+            yaml_indentation: 2
+
+            
 when@test:
     framework:
         test: true
         session:
             storage_factory_id: session.storage.factory.mock_file
+

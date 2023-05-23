@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Boisson{% endblock %}
+
+
+{% block body %}
+{% block FormPage %}
+  <div id="container" class='crud-container d-grid justify-content-center' >
+    <h1>Create new Boisson</h1>
+
+    {{ include('/AdminTemplate/Crud/Plats/crud_boisson/_form.html.twig') }}
+
+    <a href="{{ path('app_gestion_boisson') }}">back to list</a>
+</div>
+{% endblock %}
+</div>
+{% endblock %}
+
