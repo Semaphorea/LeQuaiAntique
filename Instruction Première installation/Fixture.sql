@@ -2,6 +2,7 @@
 use lequaiantique;
 #Administrateur
 insert into administrateur (username,password,nom,prenom,email) values('admin','$2y$13$KSceHcv6KQL5hAmCIEyv4.P617CjJyqIUrvlLlRPRenWuWwExHTwa','Lequaiantique','Administrateur','administrateur@lequaiantique.xyz')
+
 #Entrees
 insert into entree (titre,description,prix) values ('Croquettes de tempeh','Délicieuse boulettes de soja','13',null) ;
 insert into entree (titre,description,prix) values ('Concentré de soleil alpin','Tomates farcies et fromage frais','15') ;
